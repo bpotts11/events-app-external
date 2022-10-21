@@ -1,9 +1,9 @@
 
 <ul >
   {{#events}}
-    <li>
+    <li>        
         <h2>{{ title }}</h2>
-        {{!-- code to display images goes here --}}
+        {{#if image}}  <img src="https://storage.googleapis.com/{{../bucket}}/{{image}}" />  {{/if}}
         <p>{{ description }}</p>
         <p>Location: {{ location }}</p>
         <p>Likes: {{ likes }}
@@ -21,6 +21,7 @@
 </ul>
 <div>
   <h2>Add an event</h2>
+  <a href='/approval'>Approval</a>
     <form action="/event" method="post" enctype="multipart/form-data">
        title: <input name="title" type="text" /> <br />
        description: <input name="description" type="text" /> <br />
